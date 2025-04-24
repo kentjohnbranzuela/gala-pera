@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Plus, CreditCard, Building, Bank } from 'lucide-react';
+import { ArrowLeft, Plus, CreditCard, Building, BanknoteIcon } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import FooterNav from '@/components/FooterNav';
 import { useToast } from '@/hooks/use-toast';
@@ -64,7 +64,7 @@ const PaymentMethods = () => {
           <div className="bg-gray-50 rounded-lg p-4 mb-4">
             <div className="flex gap-3 items-center">
               <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                <Bank className="h-5 w-5 text-blue-600" />
+                <Building className="h-5 w-5 text-blue-600" />
               </div>
               <div>
                 <p className="font-medium">BPI Savings Account</p>

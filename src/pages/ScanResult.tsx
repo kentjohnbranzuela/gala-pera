@@ -19,7 +19,7 @@ const ScanResult = () => {
     toast({
       title: "Payment Successful!",
       description: `You paid ₱${amount.toFixed(2)} to ${merchant}`,
-      variant: "success",
+      variant: "default", // Changed from "success" to "default" to match the allowed variants
     });
     
     setTimeout(() => {

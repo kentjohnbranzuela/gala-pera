@@ -5,10 +5,12 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, User, Settings, CreditCard, Bell, Shield, HelpCircle, LogOut } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
+import { useToast } from '@/hooks/use-toast';
 import FooterNav from '@/components/FooterNav';
 
 const Profile = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [balance] = useState('₱24,500.75');
   
   const menuItems = [
@@ -19,6 +21,21 @@ const Profile = () => {
     { icon: <Shield className="text-galapera-purple" />, label: 'Security', path: '/profile/security' },
     { icon: <HelpCircle className="text-galapera-purple" />, label: 'Help & Support', path: '/profile/help' },
   ];
+
+  const handleLogout = () => {
+    // Remove authentication flag
+    localStorage.removeItem('isAuthenticated');
+    
+    // Show logout toast
+    toast({
+      title: "Logged Out",
+      description: "You have been logged out successfully",
+      variant: "default",
+    });
+    
+    // Navigate to login page
+    navigate('/login');
+  };
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -73,7 +90,7 @@ const Profile = () => {
         <Button 
           variant="outline" 
           className="w-full border-red-500 text-red-500 hover:bg-red-50 mb-5"
-          onClick={() => navigate('/')}
+          onClick={handleLogout}
         >
           <LogOut className="h-4 w-4 mr-2" /> Log Out
         </Button>

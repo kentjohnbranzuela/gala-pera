@@ -42,7 +42,7 @@ const Balance = () => {
 
       <div className="flex gap-1 items-center mt-1">
         <span className="text-xs text-white/70">Account number:</span>
-        <span className="text-xs font-medium">0917 123 4567</span>
+        <span className="text-xs font-medium">0905 141 2422</span>
       </div>
       
       <div className="flex justify-between mt-4">

@@ -8,7 +8,7 @@ const Header = () => {
     <header className="flex justify-between items-center p-4 pt-6">
       <div className="flex items-center gap-2">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="Profile" />
+          <AvatarImage src="https://github.com/kentjohnbranzuela/myweb/image/p1.jpg" alt="Profile" />
           <AvatarFallback>GP</AvatarFallback>
         </Avatar>
         <div>

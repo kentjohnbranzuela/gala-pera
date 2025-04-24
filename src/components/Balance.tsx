@@ -2,9 +2,19 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useNavigate } from 'react-router-dom';
 
 const Balance = () => {
   const [showBalance, setShowBalance] = useState(true);
+  const navigate = useNavigate();
+
+  const handleCashIn = () => {
+    navigate('/cash-in');
+  };
+
+  const handleCashOut = () => {
+    navigate('/cash-out');
+  };
 
   return (
     <div className="bg-gradient-to-br from-galapera-purple to-galapera-dark-purple rounded-2xl p-5 text-white mt-4 relative overflow-hidden">
@@ -39,12 +49,14 @@ const Balance = () => {
         <Button 
           variant="outline" 
           className="bg-white/10 text-white border-white/20 hover:bg-white/20 w-[48%]"
+          onClick={handleCashIn}
         >
           Cash In
         </Button>
         <Button 
           variant="outline" 
           className="bg-white/10 text-white border-white/20 hover:bg-white/20 w-[48%]"
+          onClick={handleCashOut}
         >
           Cash Out
         </Button>

@@ -12,9 +12,11 @@ import {
   IndianRupee, 
   Coins 
 } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 const ServiceGrid = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const services = [
     { icon: <CreditCard size={18} />, label: 'QR Pay', path: '/scan-qr' },
@@ -27,6 +29,18 @@ const ServiceGrid = () => {
     { icon: <Wallet size={18} />, label: 'More', path: '/services' }
   ];
 
+  const handleServiceClick = (path: string) => {
+    // For now, we'll only allow certain paths to navigate properly
+    if (path === '/scan-qr' || path === '/mobile-load') {
+      navigate(path);
+    } else {
+      toast({
+        title: "Coming Soon",
+        description: "This feature will be available in a future update",
+      });
+    }
+  };
+
   return (
     <div className="mt-6 mb-6">
       <div className="flex justify-between items-center mb-4">
@@ -38,7 +52,7 @@ const ServiceGrid = () => {
             key={index}
             icon={service.icon}
             label={service.label}
-            onClick={() => navigate(service.path)}
+            onClick={() => handleServiceClick(service.path)}
           />
         ))}
       </div>
